@@ -37,11 +37,11 @@ export default function Navbar(){
                         </span>
                     </NavLink> 
 
-                    {/* <NavLink to="/admin">
+                    <NavLink to="/admin">
                         <span>
                             Admin
                         </span>
-                    </NavLink>                */}
+                    </NavLink> 
                 </div>
             </div>
             {/* render child pages */}
