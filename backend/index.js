@@ -20,7 +20,7 @@ app.use("/", adminRouter);
 app.use("/api", surveyRouter);
 app.get("/", (req, res) => {
     res.json("Hello, Welcome to Servey App");
-}
+})
 
 // 4. Middleware to handle 404 requests
 app.use((req, res) => {
