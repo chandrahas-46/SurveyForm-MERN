@@ -3,12 +3,15 @@ import express from 'express';
 import cors from 'cors';
 import {connectToDB} from './src/config/mongooseConfig.js';
 // import surveyRouter from "./src/routes/surveyForm.routes.js";
-import adminRouter from "./src/routes/admin.routes.js";
+// import adminRouter from "./src/routes/admin.routes.js";
 import SurveyController from "./src/controllers/surveyForm.controller.js";
+import AdminController from "./src/controllers/adminController.js";
+
+const adminController = new AdminController();
 const surveyController = new SurveyController();
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 app.use(cors(
     {
         origin: ["https://survey-form-mern-frontend.vercel.app"],
@@ -18,11 +21,14 @@ app.use(cors(
 ));
 app.use(express.json());
 
-app.use("/", adminRouter);
+// app.use("/", adminRouter);
 // app.use("/api", surveyRouter);
 app.get("/", (req, res) => {
     res.json("Hello, Welcome to Servey App");
 })
+
+app.post('/register', adminController.postRegister);
+app.post('/login', adminController.postLogin);
 app.post('/api/surveys', surveyController.createSurvey);
 app.get('/api/surveys', surveyController.getAllSurveys);
 
