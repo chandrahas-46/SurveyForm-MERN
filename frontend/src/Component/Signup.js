@@ -12,12 +12,13 @@ export function Signup(){
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
-    const apiUrl = `${window.location.origin}/register`;
+    axios.defaults.withCredentials = true;
+    // const apiUrl = `${window.location.origin}/register`;
     // 'http://localhost:3001/register'
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(apiUrl, {name, email, password})
+        axios.post('https://survey-form-mern-api.vercel.app/register', {name, email, password})
         .then(result => {
             console.log("FrontEnd SignUp: ",result);
             toast.success('Registration successful!');
