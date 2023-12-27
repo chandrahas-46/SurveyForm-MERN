@@ -1,6 +1,6 @@
 import "./env.js";
 import express from 'express';
-import cors from 'cors';
+// import cors from 'cors';
 import {connectToDB} from './src/config/mongooseConfig.js';
 // import surveyRouter from "./src/routes/surveyForm.routes.js";
 // import adminRouter from "./src/routes/admin.routes.js";
@@ -12,11 +12,11 @@ const surveyController = new SurveyController();
 
 const app = express();
 // app.use(cors());
-app.use(cors(
-    {
-        origin: '*'
-    }
-));
+// app.use(cors(
+//     {
+//         origin: '*'
+//     }
+// ));
 app.use(express.json());
 
 // app.use("/", adminRouter);
@@ -25,10 +25,10 @@ app.get("/", (req, res) => {
     res.json("Hello, Welcome to Servey App");
 })
 
-app.post('/register', cors(), adminController.postRegister);
-app.post('/login', cors(), adminController.postLogin);
-app.post('/api/surveys', cors(), surveyController.createSurvey);
-app.get('/api/surveys', cors(), surveyController.getAllSurveys);
+app.post('/register', adminController.postRegister);
+app.post('/login', adminController.postLogin);
+app.post('/api/surveys', surveyController.createSurvey);
+app.get('/api/surveys', surveyController.getAllSurveys);
 
 // 4. Middleware to handle 404 requests
 app.use((req, res) => {
