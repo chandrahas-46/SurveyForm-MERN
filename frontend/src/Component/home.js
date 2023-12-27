@@ -12,12 +12,13 @@ export function Home(){
     const [phoneNumber, setPhoneNumber] = useState();
     const [address, setAddress] = useState();
     const [message, setMessage] = useState();
-    const apiUrl = `${window.location.origin}/api/surveys`;
+    axios.defaults.withCredentials = true;
+    // const apiUrl = `${window.location.origin}/api/surveys`;
     // 'http://localhost:3001/api/surveys'
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(apiUrl, {name, gender, nationality, email, phoneNumber, address, message})
+        axios.post('https://survey-form-mern-api.vercel.app/api/surveys', {name, gender, nationality, email, phoneNumber, address, message})
         .then(result => {console.log(result)
             toast.success('Survey completed successfully!');
             setName(null);
