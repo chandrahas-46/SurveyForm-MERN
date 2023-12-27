@@ -9,7 +9,7 @@ const app = express();
 // app.use(cors());
 app.use(cors(
     {
-        origin: ["https://deploy-mern-frontend.vercel.app"],
+        origin: ["https://survey-form-mern-api.vercel.app"],
         methods: ["POST", "GET"],
         credentials: true
     }
