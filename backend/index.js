@@ -11,12 +11,10 @@ const adminController = new AdminController();
 const surveyController = new SurveyController();
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(cors(
     {
-        origin: "https://survey-form-mern-frontend.vercel.app",
-        methods: ["POST", "GET"],
-        credentials: true
+        origin: '*'
     }
 ));
 app.use(express.json());
@@ -27,10 +25,10 @@ app.get("/", (req, res) => {
     res.json("Hello, Welcome to Servey App");
 })
 
-app.post('/register', adminController.postRegister);
-app.post('/login', adminController.postLogin);
-app.post('/api/surveys', surveyController.createSurvey);
-app.get('/api/surveys', surveyController.getAllSurveys);
+app.post('/register', cors(), adminController.postRegister);
+app.post('/login', cors(), adminController.postLogin);
+app.post('/api/surveys', cors(), surveyController.createSurvey);
+app.get('/api/surveys', cors(), surveyController.getAllSurveys);
 
 // 4. Middleware to handle 404 requests
 app.use((req, res) => {
