@@ -11,12 +11,13 @@ export function Login(){
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
-    const apiUrl = `${window.location.origin}/login`;
+    axios.defaults.withCredentials = true;
+    // const apiUrl = `${window.location.origin}/login`;
     // 'http://localhost:3001/login'
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(apiUrl, {email, password})
+        axios.post('https://survey-form-mern-api.vercel.app/login', {email, password})
         .then(result => {
             console.log("FrontEnd Login: ",result.data)
             if(result.data.message == "success"){
