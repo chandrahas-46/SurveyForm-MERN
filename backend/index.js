@@ -21,8 +21,13 @@ app.use(express.json());
 
 // app.use("/", adminRouter);
 // app.use("/api", surveyRouter);
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
     res.json("Hello, Welcome to Servey App");
+})
+
+app.get("/api", (req, res) => {
+    // res.status(201).send("All Survey List available on this link");
+    res.json("Hello, All Survey List available on this link");
 })
 
 app.post('/register', adminController.postRegister);
