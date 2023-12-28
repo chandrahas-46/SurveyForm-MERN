@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
 })
 
 app.get("/api", (req, res) => {
-    // res.status(201).send("All Survey List available on this link");
-    res.json("Hello, All Survey List available on this link");
+    res.status(201).send("All Survey List available on this link");
+    // res.json("Hello, All Survey List available on this link");
 })
 
 app.post('/register', adminController.postRegister);
