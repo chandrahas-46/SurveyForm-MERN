@@ -1,6 +1,6 @@
 import "./env.js";
 import express from 'express';
-// import cors from 'cors';
+import cors from 'cors';
 import {connectToDB} from './src/config/mongooseConfig.js';
 // import surveyRouter from "./src/routes/surveyForm.routes.js";
 // import adminRouter from "./src/routes/admin.routes.js";
