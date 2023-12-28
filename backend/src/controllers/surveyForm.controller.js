@@ -31,9 +31,11 @@ export default class SurveyController{
     }
 
 
-    getAllSurveys(req, res) {
+    async getAllSurveys(req, res) {
+        let survey = await SurveyModel.find({});
         return res.status(200).send({
-                  message: "Here, You can find all your Surveys!"
+                  message: "Here, You can find all your Surveys!",
+                    surveys: survey,
                 });
         // try{
         //     let survey = await SurveyModel.find({});
