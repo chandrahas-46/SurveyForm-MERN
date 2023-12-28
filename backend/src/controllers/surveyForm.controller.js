@@ -31,22 +31,25 @@ export default class SurveyController{
     }
 
 
-    async getAllSurveys(req, res) {
-        try{
-            let survey = await SurveyModel.find({});
-            if (survey) {
-                return res.status(200).send({
-                  message: "Here, You can find all your Surveys!",
-                  surveys: survey,
+    getAllSurveys(req, res) {
+        return res.status(200).send({
+                  message: "Here, You can find all your Surveys!"
                 });
-            } 
-            else {
-                return res.status(400).send({ message: "Survey not Found, You can add new Survey!!"});
-            }
-        }
-        catch(err){
-            console.log(err);
-            return res.status(500).send("Something went wrong");
-        }
+        // try{
+        //     let survey = await SurveyModel.find({});
+        //     if (survey) {
+        //         return res.status(200).send({
+        //           message: "Here, You can find all your Surveys!",
+        //           surveys: survey,
+        //         });
+        //     } 
+        //     else {
+        //         return res.status(400).send({ message: "Survey not Found, You can add new Survey!!"});
+        //     }
+        // }
+        // catch(err){
+        //     console.log(err);
+        //     return res.status(500).send("Something went wrong");
+        // }
     }
 }
