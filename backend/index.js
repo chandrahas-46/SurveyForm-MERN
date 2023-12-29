@@ -10,6 +10,8 @@ import AdminController from "./src/controllers/adminController.js";
 const adminController = new AdminController();
 const surveyController = new SurveyController();
 
+const PORT = process.env.PORT || 3001;
+
 const app = express();
 // app.use(cors());
 app.use(cors(
@@ -43,7 +45,7 @@ app.use((req, res) => {
 })
 
 //server listening
-app.listen(3001, (err) => {
+app.listen(PORT, (err) => {
     if(err) console.log("server error on port 3001");
     console.log('Server is running at 3001');
     connectToDB();
