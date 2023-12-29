@@ -17,7 +17,7 @@ export function Home(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:3001/api/surveys`, {name, gender, nationality, email, phoneNumber, address, message})
+        axios.post(`https://survey-form-mern-api.vercel.app/api/surveys`, {name, gender, nationality, email, phoneNumber, address, message})
         .then(result => {console.log(result)
             toast.success('Survey completed successfully!');
             setName(null);
