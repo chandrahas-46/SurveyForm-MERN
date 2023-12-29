@@ -24,7 +24,7 @@ export function SurveyContext({children}){
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/api/surveys`);
+            const response = await axios.get(`https://survey-form-mern-api.vercel.app/api/surveys`);
             setSurveyData(response.data.surveys);
             console.log("### ", surveyData); 
         } 
