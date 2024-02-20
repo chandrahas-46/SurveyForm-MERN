@@ -39,7 +39,7 @@ app.use((req, res) => {
 })
 
 //server listening
-app.listen(3001, (err) => {
+app.listen(3000, (err) => {
     if(err) console.log("server error on port 3001");
     console.log('Server is running at 3001');
     connectToDB();
